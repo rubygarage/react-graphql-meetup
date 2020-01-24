@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { profileRequest as profileRequestAction } from '../../store/theMovieDB/profile/actions';
-import { getProfile } from '../../store/theMovieDB/profile/selectors';
+import { profileRequest as profileRequestAction } from '../../store/profile/actions';
+import { getProfile } from '../../store/profile/selectors';
 
 import HeaderComponent from './component';
 

@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { movieRequest as movieRequestAction } from '../../store/theMovieDB/movie/actions';
+import { movieRequest as movieRequestAction } from '../../store/movie/actions';
 
 import {
   getMovieById,
   getGenresById,
   getCastById,
   getCrewById,
-} from '../../store/theMovieDB/movie/selectors';
+} from '../../store/movie/selectors';
 
 import MovieComponent from './component';
 

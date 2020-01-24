@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { getSearchQuery } from '../../../store/theMovieDB/search/selectors';
+import { getSearchQuery } from '../../../store/search/selectors';
 
 import DashboardComponent from './component';
 

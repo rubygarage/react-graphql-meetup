@@ -1,8 +1,8 @@
 import React from 'react';
 import configureStore from 'redux-mock-store';
 
-import { searchRequest } from '../../../../../store/theMovieDB/search/actions';
-import { trendingRequest } from '../../../../../store/theMovieDB/trending/actions';
+import { searchRequest } from '../../../../../store/search/actions';
+import { trendingRequest } from '../../../../../store/trending/actions';
 
 import DashboardPageContainer from '../container';
 

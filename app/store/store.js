@@ -3,8 +3,8 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import { createLogicMiddleware } from 'redux-logic';
 
 import apiClient from '../apiClient/client';
-import rootLogic from './theMovieDB/logic';
-import reducers from './theMovieDB/reducers';
+import rootLogic from './logic';
+import rootReducer from './rootReducer';
 
 const logicMiddleware = createLogicMiddleware(rootLogic, {
   apiClient,
@@ -12,9 +12,5 @@ const logicMiddleware = createLogicMiddleware(rootLogic, {
 
 const middlewares = applyMiddleware(logicMiddleware);
 const enhancers = compose(middlewares);
-
-const rootReducer = combineReducers({
-  reducers,
-});
 
 export default createStore(rootReducer, composeWithDevTools(enhancers));

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { addToFavoriteRequest as addToFavoriteRequestAction } from '../../../../store/theMovieDB/favorite/actions';
+import { addToFavoriteRequest as addToFavoriteRequestAction } from '../../../../store/favorite/actions';
 
 import FavoriteIconComponent from './component';
 

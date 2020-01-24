@@ -1,6 +1,6 @@
 import React from 'react';
 import configureStore from 'redux-mock-store';
-import { movieRequest } from '../../../store/theMovieDB/movie/actions';
+import { movieRequest } from '../../../store/movie/actions';
 import MovieContainer from '../container';
 
 describe('<MovieContainer />', () => {

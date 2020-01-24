@@ -1,6 +1,6 @@
 import React from 'react';
 import configureStore from 'redux-mock-store';
-import { createListRequest } from '../../../../store/theMovieDB/myLists/actions';
+import { createListRequest } from '../../../../store/myLists/actions';
 
 import CreateListModalContainer from '../container';
 

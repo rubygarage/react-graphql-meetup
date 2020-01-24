@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { createSessionRequest as createSessionRequestAction } from '../../../store/theMovieDB/login/actions';
-import { loginError } from '../../../store/theMovieDB/login/selectors';
+import { createSessionRequest as createSessionRequestAction } from '../../../store/login/actions';
+import { loginError } from '../../../store/login/selectors';
 
 import LoginFormComponent from './component';
 

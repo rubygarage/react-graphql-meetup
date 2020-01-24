@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import configureStore from 'redux-mock-store';
 
-import { deleteListRequest } from '../../../../store/theMovieDB/myLists/actions';
+import { deleteListRequest } from '../../../../store/myLists/actions';
 import MyListsTitleContainer from '../container';
 
 describe('<MyListsTitleContainer />', () => {

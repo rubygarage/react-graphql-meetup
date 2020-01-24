@@ -5,8 +5,8 @@ import PropTypes from 'prop-types';
 import {
   favoriteRequest as favoriteRequestAction,
   addToFavoriteRequest as addToFavoriteRequestAction,
-} from '../../store/theMovieDB/favorite/actions';
-import { getFavorite } from '../../store/theMovieDB/favorite/selectors';
+} from '../../store/favorite/actions';
+import { getFavorite } from '../../store/favorite/selectors';
 
 import FavoritesComponent from './component';
 

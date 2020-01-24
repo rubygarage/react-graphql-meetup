@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { deleteSessionRequest as deleteSessionRequestAction } from '../../../store/theMovieDB/login/actions';
+import { deleteSessionRequest as deleteSessionRequestAction } from '../../../store/login/actions';
 
 import DropdownMenuComponent from './component';
 

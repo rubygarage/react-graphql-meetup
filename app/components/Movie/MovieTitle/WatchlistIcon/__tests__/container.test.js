@@ -1,7 +1,7 @@
 import React from 'react';
 import configureStore from 'redux-mock-store';
 
-import { addToWatchlistRequest } from '../../../../../store/theMovieDB/watchlist/actions';
+import { addToWatchlistRequest } from '../../../../../store/watchlist/actions';
 
 import WatchlistIconComponent from '../container';
 

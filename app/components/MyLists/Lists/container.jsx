@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { deleteListRequest as deleteListRequestAction } from '../../../store/theMovieDB/myLists/actions';
+import { deleteListRequest as deleteListRequestAction } from '../../../store/myLists/actions';
 
 import ListsComponent from './component';
 

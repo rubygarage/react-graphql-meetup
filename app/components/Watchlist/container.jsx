@@ -5,8 +5,8 @@ import PropTypes from 'prop-types';
 import {
   watchlistRequest as watchlistRequestAction,
   addToWatchlistRequest as addToWatchlistRequestAction,
-} from '../../store/theMovieDB/watchlist/actions';
-import { getWatchlist } from '../../store/theMovieDB/watchlist/selectors';
+} from '../../store/watchlist/actions';
+import { getWatchlist } from '../../store/watchlist/selectors';
 
 import WatchlistComponent from './component';
 

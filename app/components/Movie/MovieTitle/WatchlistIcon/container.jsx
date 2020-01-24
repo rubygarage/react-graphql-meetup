@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { addToWatchlistRequest as addToWatchlistRequestAction } from '../../../../store/theMovieDB/watchlist/actions';
+import { addToWatchlistRequest as addToWatchlistRequestAction } from '../../../../store/watchlist/actions';
 
 import WatchlistIconComponent from './component';
 

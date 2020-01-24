@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { deleteListRequest as deleteListRequestAction } from '../../../store/theMovieDB/myLists/actions';
+import { deleteListRequest as deleteListRequestAction } from '../../../store/myLists/actions';
 
 import MyListsTitleComponent from './component';
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import configureStore from 'redux-mock-store';
 
-import { favoriteRequest } from '../../../store/theMovieDB/favorite/actions';
+import { favoriteRequest } from '../../../store/favorite/actions';
 import FavoritesContainer from '../container';
 
 describe('<FavoritesContainer />', () => {

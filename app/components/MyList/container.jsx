@@ -5,8 +5,8 @@ import PropTypes from 'prop-types';
 import {
   detailsListRequest as detailsListRequestAction,
   removeMovieListRequest as removeMovieListRequestAction,
-} from '../../store/theMovieDB/myLists/actions';
-import { getDetailsList } from '../../store/theMovieDB/myLists/selectors';
+} from '../../store/myLists/actions';
+import { getDetailsList } from '../../store/myLists/selectors';
 
 import MyListComponent from './component';
 

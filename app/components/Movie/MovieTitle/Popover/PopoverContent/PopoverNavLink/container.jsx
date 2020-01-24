@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { addMovieListRequest as addMovieListRequestAction } from '../../../../../../store/theMovieDB/myLists/actions';
+import { addMovieListRequest as addMovieListRequestAction } from '../../../../../../store/myLists/actions';
 
 import PopoverNavLinkComponent from './component';
 

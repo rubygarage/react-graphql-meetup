@@ -1,7 +1,7 @@
 import React from 'react';
 import configureStore from 'redux-mock-store';
 
-import { addMovieListRequest } from '../../../../../../../store/theMovieDB/myLists/actions';
+import { addMovieListRequest } from '../../../../../../../store/myLists/actions';
 
 import PopoverNavLinkContainer from '../container';
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import configureStore from 'redux-mock-store';
 
-import { addToFavoriteRequest } from '../../../../../store/theMovieDB/favorite/actions';
+import { addToFavoriteRequest } from '../../../../../store/favorite/actions';
 
 import FavoriteIconContainer from '../container';
 

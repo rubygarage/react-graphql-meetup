@@ -1,7 +1,7 @@
 import React from 'react';
 import configureStore from 'redux-mock-store';
 
-import { createdListsRequest } from '../../../store/theMovieDB/myLists/actions';
+import { createdListsRequest } from '../../../store/myLists/actions';
 import MyListsContainer from '../container';
 
 describe('<MyListsContainer />', () => {

@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { searchRequest as searchRequestAction } from '../../../../store/theMovieDB/search/actions';
-import { trendingRequest as trendingRequestAction } from '../../../../store/theMovieDB/trending/actions';
-import { getTrending } from '../../../../store/theMovieDB/trending/selectors';
+import { searchRequest as searchRequestAction } from '../../../../store/search/actions';
+import { trendingRequest as trendingRequestAction } from '../../../../store/trending/actions';
+import { getTrending } from '../../../../store/trending/selectors';
 
 import DashboardPageComponent from './component';
 

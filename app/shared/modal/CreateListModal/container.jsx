@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { createListRequest as createListRequestAction } from '../../../store/theMovieDB/myLists/actions';
+import { createListRequest as createListRequestAction } from '../../../store/myLists/actions';
 
 import CreateListModalComponent from './component';
 

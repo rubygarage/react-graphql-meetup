@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { createdListsRequest as createdListsRequestAction } from '../../../../../store/theMovieDB/myLists/actions';
-import { getCreatedLists } from '../../../../../store/theMovieDB/myLists/selectors';
+import { createdListsRequest as createdListsRequestAction } from '../../../../../store/myLists/actions';
+import { getCreatedLists } from '../../../../../store/myLists/selectors';
 
 import PopoverContentComponent from './component';
 

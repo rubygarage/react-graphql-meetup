@@ -1,7 +1,7 @@
 import React from 'react';
 import configureStore from 'redux-mock-store';
 
-import { searchRequest } from '../../../../../store/theMovieDB/search/actions';
+import { searchRequest } from '../../../../../store/search/actions';
 
 import SearchPageContainer from '../container';
 

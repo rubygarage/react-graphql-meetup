@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { getSessionId } from '../../store/theMovieDB/login/selectors';
+import { getSessionId } from '../../store/login/selectors';
 
 import HomeContainer from './component';
 

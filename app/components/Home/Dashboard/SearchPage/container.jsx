@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { searchRequest as searchRequestAction } from '../../../../store/theMovieDB/search/actions';
-import { getSearch } from '../../../../store/theMovieDB/search/selectors';
+import { searchRequest as searchRequestAction } from '../../../../store/search/actions';
+import { getSearch } from '../../../../store/search/selectors';
 
 import SearchPageComponent from './component';
 
