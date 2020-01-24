@@ -1,31 +1,20 @@
 const path = require('path');
 const autoprefixer = require('autoprefixer');
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
-  mode: 'development',
   resolve: {
     extensions: ['.js', '.jsx'],
   },
-  devServer: {
-    historyApiFallback: true,
-  },
-  entry: './app/app.jsx', // входная точка - исходный файл
-  output: {
-    path: path.resolve(__dirname, './public'), // путь к каталогу выходных файлов - папка public
-    publicPath: '/public/',
-    filename: 'bundle.js', // название создаваемого файла
-  },
-  devtool: 'cheap-module-source-map',
+  entry: './app/app.jsx',
   module: {
     rules: [
       {
-        // Загрузчик для jsx
         test: /\.jsx?$/,
         exclude: /node_modules/,
         loader: 'babel-loader',
       },
       {
-        // Загрузчик для шрифтов
         test: /.(eot|ttf|woff|woff2|svg)(\?.+)?$/,
         exclude: /images/,
         use: [
@@ -39,7 +28,6 @@ module.exports = {
         ],
       },
       {
-        // Загрузчик для изображений
         test: /\.(gif|jpg|webp|png|svg)$/,
         exclude: /fonts/,
         use: [
@@ -52,7 +40,6 @@ module.exports = {
         ],
       },
       {
-        // Загрузчик для scss файлов
         test: /\.scss$/,
         exclude: [/node_modules/, /public/],
         use: [
@@ -69,4 +56,10 @@ module.exports = {
       },
     ],
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './public/index.html',
+      filename: './index.html'
+    }),
+  ],
 };
