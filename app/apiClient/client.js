@@ -1,16 +1,7 @@
-import axios from 'axios';
-import qs from 'qs';
+import ApolloClient from 'apollo-boost';
 
-const instance = axios.create({
-  baseURL: 'https://api.themoviedb.org/3/',
+const client = new ApolloClient({
+  uri: 'http://localhost:4000/'
 });
 
-instance.interceptors.request.use(config => {
-  config.params = {
-    api_key: '373ab70129f36fd1f65b6d7b24ec2641',
-  };
-  config.paramsSerializer = params => qs.stringify(params);
-  return config;
-});
-
-export default instance;
+export default client;
