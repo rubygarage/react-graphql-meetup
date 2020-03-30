@@ -13,6 +13,7 @@ class LoginFormContainer extends Component {
   };
 
   render() {
+    console.log(this.props)
     return <LoginFormComponent {...this.props} onSubmit={this.onSubmit} />;
   }
 }

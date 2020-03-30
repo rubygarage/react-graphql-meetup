@@ -1,4 +1,3 @@
-const path = require('path');
 const autoprefixer = require('autoprefixer');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
@@ -62,4 +61,10 @@ module.exports = {
       filename: './index.html'
     }),
   ],
+  devServer: {
+    proxy: {
+      '/graphql': 'http://localhost:3000/',
+      secure: false
+    }
+  }
 };

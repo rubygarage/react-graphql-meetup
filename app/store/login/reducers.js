@@ -3,7 +3,7 @@ import * as t from './actionTypes';
 
 export const loginInitialState = {
   isLoading: false,
-  sessionId: Cookies.get('sessionId') || '',
+  isLoggedIn: Cookies.get('access') && Cookies.get('refresh'),
   error: null,
 };
 
@@ -19,13 +19,13 @@ export const loginReducer = (state = loginInitialState, action) => {
       return {
         ...state,
         isLoading: false,
-        sessionId: action.payload,
+        isLoggedIn: true,
       };
     case t.CREATE_SESSION_FAILURE:
       return {
         ...state,
         isLoading: false,
-        error: action.payload.message,
+        error: action.payload,
       };
     case t.DELETE_SESSION_REQUEST:
       return {
@@ -37,13 +37,13 @@ export const loginReducer = (state = loginInitialState, action) => {
       return {
         ...state,
         isLoading: false,
-        sessionId: action.payload,
+        isLoggedIn: false,
       };
     case t.DELETE_SESSION_FAILURE:
       return {
         ...state,
         isLoading: false,
-        error: action.payload.message,
+        logoutError: action.payload,
       };
     default:
       return state;

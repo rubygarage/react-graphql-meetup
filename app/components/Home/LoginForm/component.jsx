@@ -2,13 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
-import { Typography, Icon, Layout } from 'antd';
+import { Typography, Icon, Layout, Alert } from 'antd';
 import FormField from '../../../shared/forms/FormField';
 import FormButton from '../../../shared/forms/Button';
 
 const LoginSchema = Yup.object().shape({
-  username: Yup.string()
-    .matches(/[a-z,A-Z,0-9]/, 'Should be combination of numbers & alphabets')
+  email: Yup.string()
+    .email('Should be valid email address')
     .required('Should be required'),
   password: Yup.string()
     .min(4, 'Too short! Min 4 Symbols')
@@ -19,16 +19,23 @@ const LoginFormComponent = ({ onSubmit, loginError }) => (
   <Layout className="login">
     <Typography.Title>The Movie DB</Typography.Title>
     <Formik
-      initialValues={{ username: '', password: '' }}
+      initialValues={{ email: '', password: '' }}
       validationSchema={LoginSchema}
       onSubmit={onSubmit}
       render={props => (
         <Form className="form login__form">
+          {loginError && (
+            <Alert
+              className="login__error"
+              message="Pleace, check your login or password and try again"
+              type="error"
+            />
+          )}
           <Field
             type="text"
-            name="username"
+            name="email"
             component={FormField}
-            placeholder="Username"
+            placeholder="Email"
             fieldPrefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
           />
           <Field
@@ -45,9 +52,6 @@ const LoginFormComponent = ({ onSubmit, loginError }) => (
             size="default"
             icon={props.isSubmitting ? 'loading' : ''}
           />
-          {loginError && (
-            <div className="login__error">Pleace, check your login or password and try again</div>
-          )}
         </Form>
       )}
     />

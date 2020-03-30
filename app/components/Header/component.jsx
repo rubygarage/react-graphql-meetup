@@ -15,22 +15,18 @@ const HeaderComponent = ({ profile }) => {
         {profile && (
           <Col>
             <div className="profile">
-              <figure className="profile__avatar">
-                {profile.avatar ? (
-                  <img
-                    className="profile__avatar-img"
-                    src={`https://www.gravatar.com/avatar/${profile.avatar}.jpg`}
-                    alt={profile.name}
-                  />
-                ) : (
-                  <Avatar icon="user" />
-                )}
-              </figure>
-              <Dropdown className="profile__dropdown" overlay={<DropdownMenu />}>
-                <Typography.Text>
-                  {profile.username}
-                  <Icon type="caret-down" />
-                </Typography.Text>
+              <Dropdown overlay={<DropdownMenu />}>
+                <div>
+                  {profile.avatar ? (
+                    <Avatar src={`https://www.gravatar.com/avatar/${profile.avatar}.jpg`} />
+                  ) : (
+                    <Avatar icon="user" />
+                  )}
+                  <Typography.Text>
+                    {profile.username}
+                    <Icon type="caret-down" />
+                  </Typography.Text>
+                </div>
               </Dropdown>
             </div>
           </Col>
