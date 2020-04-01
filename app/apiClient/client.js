@@ -16,8 +16,8 @@ const authLink = setContext((_, { headers }) => {
   return {
     headers: {
       ...headers,
-      Authorization: access ? `Bearer ${access}` : '',
-      'X-Refresh-Token': refresh
+      'Authorization': access ? `Bearer ${access}` : '',
+      // 'X-Refresh-Token': refresh
     },
   };
 });

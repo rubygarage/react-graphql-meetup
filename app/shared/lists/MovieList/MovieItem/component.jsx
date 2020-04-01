@@ -9,7 +9,7 @@ const MovieItemComponent = ({ item, actions }) => (
   <Card
     className="top-margin"
     hoverable
-    cover={<Image className="movie__img" path={item.poster_path} alt={item.title} />}
+    cover={<Image className="movie__img" path={item.poster.filePath} alt={item.title} />}
     actions={actions}
   >
     <Link to={`/movie/${item.id}`}>

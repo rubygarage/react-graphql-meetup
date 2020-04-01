@@ -1,32 +1,53 @@
 import { createLogic } from 'redux-logic';
+import gql from 'graphql-tag';
 import { normalize } from 'normalizr';
 import { movies } from '../schema';
-import { getSessionId } from '../login/selectors';
 
 import { trendingSuccess, trendingFailure } from './actions';
 import { addEntities } from '../data/actions';
 import * as t from './actionTypes';
+import handleErrors from '../../helpers/handleErrors';
+
+const TRENDING_MOVIES = gql`
+  {
+    trendingMovies {
+      id
+      title
+      overview
+      poster {
+        filePath
+      }
+    }
+  }
+`;
 
 export default createLogic({
   type: t.TRENDING_REQUEST,
 
-  process({ apiClient, getState, action }, dispatch, done) {
-    const sessionId = getSessionId(getState());
+  async process({ apiClient, action }, dispatch, done) {
+
     const { page } = action.payload;
 
-    apiClient
-      .get(`trending/movie/week?session_id=${sessionId}&page=${page}&language=en-US`)
-      .then(response => {
-        const { entities, result } = normalize(response.data.results, [movies]);
-        dispatch(addEntities(entities));
-        dispatch(
-          trendingSuccess({
-            ...response.data,
-            results: result,
-          }),
-        );
-      })
-      .catch(error => dispatch(trendingFailure(error)))
-      .then(() => done());
+    try {
+      const { data: { trendingMovies } } = await apiClient.query({
+        query: TRENDING_MOVIES,
+      });
+
+      const { entities, result } = normalize(trendingMovies, [movies]);
+
+      dispatch(addEntities(entities));
+      dispatch(
+        trendingSuccess({
+          page,
+          total_pages: 1,
+          results: result,
+        }),
+      );
+    } catch (error) {
+      const handledError = handleErrors(error);
+      dispatch(trendingFailure(handledError));
+    }
+
+    done();
   },
 });
