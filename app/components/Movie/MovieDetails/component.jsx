@@ -24,9 +24,9 @@ const MovieDetailsComponent = ({ movieDetails, title }) => (
           >
             <Card
               className="top-margin"
-              cover={<Image className="movie-image" path={item.profile_path} alt={item.name} />}
+              cover={<Image className="movie-image" path={item.profilePath} alt={item.name} />}
             >
-              <Card.Meta title={item.name} description={item.character || item.job} />
+              <Card.Meta title={item.name} description={item.character || item.department} />
             </Card>
           </Col>
         ))}

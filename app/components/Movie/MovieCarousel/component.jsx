@@ -1,16 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Row, Col, Carousel } from 'antd';
+import { map } from 'lodash';
 
 import Image from '../../../shared/images/Image';
 
-const MovieCarouselComponent = ({ backdrops, title }) => (
+const MovieCarouselComponent = ({ poster, images, title }) => (
   <Row type="flex">
     <Col span={24}>
       <Carousel autoplay>
-        {backdrops.map((item, index) => (
-          <div key={index}>
-            <Image className="movie-image" path={item.file_path} alt={title} />
+        <div>
+          <Image className="movie-image" path={poster.filePath} alt={title} />
+        </div>
+        {map(images, item => (
+          <div>
+            <Image className="movie-image" path={item.filePath} alt={title} />
           </div>
         ))}
       </Carousel>
@@ -19,7 +23,7 @@ const MovieCarouselComponent = ({ backdrops, title }) => (
 );
 
 MovieCarouselComponent.propTypes = {
-  backdrops: PropTypes.array.isRequired,
+  images: PropTypes.array.isRequired,
   title: PropTypes.string.isRequired,
 };
 

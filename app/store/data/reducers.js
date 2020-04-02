@@ -4,7 +4,6 @@ export const initialState = {
   profile: {},
   movies: {},
   movie: {},
-  genres: {},
   cast: {},
   crew: {},
   lists: {},
@@ -23,10 +22,6 @@ export const dataReducer = (state = initialState, action) => {
         movie: {
           ...state.movie,
           ...action.entities.movie,
-        },
-        genres: {
-          ...state.genres,
-          ...action.entities.genres,
         },
         cast: {
           ...state.cast,

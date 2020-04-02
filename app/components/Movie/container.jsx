@@ -5,7 +5,6 @@ import { movieRequest as movieRequestAction } from '../../store/movie/actions';
 
 import {
   getMovieById,
-  getGenresById,
   getCastById,
   getCrewById,
 } from '../../store/movie/selectors';
@@ -30,7 +29,6 @@ class MovieContainer extends Component {
 
 MovieContainer.defaultTypes = {
   movie: null,
-  genres: [],
   cast: [],
   crew: [],
 };
@@ -38,7 +36,6 @@ MovieContainer.defaultTypes = {
 MovieContainer.propTypes = {
   movieRequest: PropTypes.func.isRequired,
   movie: PropTypes.object,
-  genres: PropTypes.array,
   cast: PropTypes.array,
   crew: PropTypes.array,
 };
@@ -52,7 +49,6 @@ const mapStateToProps = (
   },
 ) => ({
   movie: getMovieById(state, id),
-  genres: getGenresById(state, id),
   cast: getCastById(state, id),
   crew: getCrewById(state, id),
 });

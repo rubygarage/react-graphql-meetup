@@ -6,6 +6,9 @@ module.exports = {
     extensions: ['.js', '.jsx'],
   },
   entry: './app/app.jsx',
+  output: {
+    publicPath: '/',
+  },
   module: {
     rules: [
       {
