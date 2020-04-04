@@ -20,7 +20,6 @@ export const customFetch = (uri, options) => {
       const clonedResponse = response.clone();
       return response.json()
         .then((json) => {
-          console.log(json, accessToken)
           if (json && !isEmpty(json.errors) && json.errors[0].message === 'Not authenticated' && accessToken) {
             return fetchRefreshToken(uri, opts, shallowOptions);
           }

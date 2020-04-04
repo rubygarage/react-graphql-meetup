@@ -13,7 +13,6 @@ class LoginFormContainer extends Component {
   };
 
   render() {
-    console.log(this.props)
     return <LoginFormComponent {...this.props} onSubmit={this.onSubmit} />;
   }
 }
@@ -26,7 +25,4 @@ const mapDispatchToProps = {
   createSessionRequest: createSessionRequestAction,
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(LoginFormContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(LoginFormContainer);

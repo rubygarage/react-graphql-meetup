@@ -11,18 +11,29 @@ const httpLink = createHttpLink({
   fetch: customFetch,
 });
 
-const authLink = setContext((_, { headers }) => {
+const authLink = setContext(({ operationName }, { headers }) => {
   // get the authentication token from local storage if it exists
   const access = Cookies.get('access');
   const refresh = Cookies.get('refresh');
+
+  const isUserSignOut = operationName === 'userSignOut';
+
   // return the headers to the context so httpLink can read them
-  return {
-    headers: {
-      ...headers,
-      'Authorization': access ? `Bearer ${access}` : '',
-      // 'X-Refresh-Token': refresh
-    },
-  };
+  if (isUserSignOut) {
+    return {
+      headers: {
+        ...headers,
+        'X-Refresh-Token': refresh,
+      },
+    };
+  } else {
+    return {
+      headers: {
+        ...headers,
+        Authorization: access ? `Bearer ${access}` : '',
+      },
+    };
+  }
 });
 
 const client = new ApolloClient({
