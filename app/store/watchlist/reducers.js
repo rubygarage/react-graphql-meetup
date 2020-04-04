@@ -61,15 +61,12 @@ export const addToWatchlistReducer = (state = addWatchlistInitialState, action) 
       return {
         ...state,
         isLoading: false,
-        data: {
-          message: action.payload.status_message,
-        },
       };
     case t.ADD_TO_WATCHLIST_FAILURE:
       return {
         ...state,
         isLoading: false,
-        error: action.payload.message,
+        error: action.payload,
       };
     default:
       return state;

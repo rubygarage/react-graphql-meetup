@@ -10,3 +10,5 @@ export const getWatchlist = state => {
     }
   );
 };
+
+export const getAddToWatchlistError = state => state.addToWatchlist.error;

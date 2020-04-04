@@ -14,6 +14,7 @@ const PROFILE = gql`
       id
       email
       userProfile {
+        id
         fullName
       }
     }
