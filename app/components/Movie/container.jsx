@@ -3,11 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { movieRequest as movieRequestAction } from '../../store/movie/actions';
 
-import {
-  getMovieById,
-  getCastById,
-  getCrewById,
-} from '../../store/movie/selectors';
+import { getMovieById, getCastById, getCrewById, getMovieError } from '../../store/movie/selectors';
 
 import MovieComponent from './component';
 
@@ -51,13 +47,11 @@ const mapStateToProps = (
   movie: getMovieById(state, id),
   cast: getCastById(state, id),
   crew: getCrewById(state, id),
+  error: getMovieError(state),
 });
 
 const mapDispatchToProps = {
   movieRequest: movieRequestAction,
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(MovieContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(MovieContainer);

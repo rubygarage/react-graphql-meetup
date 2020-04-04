@@ -1,31 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Typography, Row, Col, Avatar, Dropdown, Icon, Layout } from 'antd';
+import { isEmpty } from 'lodash';
 
 import DropdownMenu from './DropdownMenu';
 
 const HeaderComponent = ({ profile }) => {
   return (
-    <Layout.Header>
+    <Layout.Header className="header">
       <Row type="flex" justify="space-between">
         <Col>
-          <Typography.Text className="logo">THE MOVIE DB</Typography.Text>
+          THE MOVIE DB
         </Col>
 
-        {profile && (
+        {!isEmpty(profile) && (
           <Col>
             <div className="profile">
               <Dropdown overlay={<DropdownMenu />}>
                 <div>
-                  {profile.avatar ? (
-                    <Avatar src={`https://www.gravatar.com/avatar/${profile.avatar}.jpg`} />
-                  ) : (
-                    <Avatar icon="user" />
-                  )}
-                  <Typography.Text>
-                    {profile.username}
-                    <Icon type="caret-down" />
-                  </Typography.Text>
+                  <Avatar icon="user" />
+                  {` ${profile.userProfile.fullName} `}
+                  <Icon type="caret-down" />
                 </div>
               </Dropdown>
             </div>

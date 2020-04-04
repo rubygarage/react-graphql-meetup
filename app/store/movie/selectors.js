@@ -14,3 +14,5 @@ export const getCrewById = (state, id) => {
   const crew = state.data.crew;
   return movie && movie.credit && movie.credit.crew && movie.credit.crew.map(item => crew[item]);
 };
+
+export const getMovieError = state => state.movie.error;

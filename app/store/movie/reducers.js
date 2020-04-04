@@ -17,7 +17,7 @@ export const movieReducer = (state = initialState, action) => {
       return {
         ...state,
         isLoading: false,
-        error: action.payload.message,
+        error: action.payload,
       };
     default:
       return state;

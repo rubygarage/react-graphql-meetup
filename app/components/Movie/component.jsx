@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Row, Col, Typography } from 'antd';
+
 import { formatMoney, formatTime } from '../../helpers/format';
 
 import MovieCarousel from './MovieCarousel';
@@ -8,9 +10,19 @@ import MovieOverview from './MovieOverview';
 import MovieLabel from './MovieLabel';
 import MovieDetails from './MovieDetails';
 
-const MovieComponent = ({ movie, cast, crew }) => (
-  <>
-    {movie && (
+const MovieComponent = ({ movie, cast, crew, error }) => {
+  if (error) {
+    return (
+      <Row type="flex">
+        <Col span={20} offset={2}>
+          <Typography.Text>{error}</Typography.Text>
+        </Col>
+      </Row>
+    );
+  }
+
+  if (movie) {
+    return (
       <>
         <MovieCarousel poster={movie.poster} images={movie.images} title={movie.title} />
         <MovieTitle movie={movie} />
@@ -22,9 +34,11 @@ const MovieComponent = ({ movie, cast, crew }) => (
         <MovieDetails movieDetails={cast} title="Casts" />
         <MovieDetails movieDetails={crew} title="Crew" />
       </>
-    )}
-  </>
-);
+    );
+  }
+
+  return null;
+};
 
 MovieComponent.defaultTypes = {
   movie: null,

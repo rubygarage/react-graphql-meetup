@@ -1,37 +1,43 @@
 import { createLogic } from 'redux-logic';
 import { normalize } from 'normalizr';
-import Cookies from 'js-cookie';
+import gql from 'graphql-tag';
 import { profile } from '../schema';
-import { getSessionId } from '../login/selectors';
 
 import { profileSuccess, profileFailure } from './actions';
 import { addEntities } from '../data/actions';
 import * as t from './actionTypes';
+import handleErrors from '../../helpers/handleErrors';
+
+const PROFILE = gql`
+  {
+    me {
+      id
+      email
+      userProfile {
+        fullName
+      }
+    }
+  }
+`;
 
 export default createLogic({
   type: t.PROFILE_REQUEST,
 
-  process({ apiClient, getState }, dispatch, done) {
-    const sessionId = getSessionId(getState());
+  async process({ apiClient }, dispatch, done) {
+    try {
+      const { data: { me } } = await apiClient.query({
+        query: PROFILE
+      });
 
-    apiClient
-      .get(`account?session_id=${sessionId}`)
-      .then(response => {
-        const {
-          id,
-          avatar: {
-            gravatar: { hash },
-          },
-          name,
-          username,
-        } = response.data;
-        const data = { id, avatar: hash, name, username };
-        const { entities } = normalize(data, profile);
-        Cookies.set('accountId', id, { expires: 7 });
-        dispatch(addEntities(entities));
-        dispatch(profileSuccess({ id }));
-      })
-      .catch(error => dispatch(profileFailure(error)))
-      .then(() => done());
+      const { entities, result } = normalize(me, profile);
+
+      dispatch(addEntities(entities));
+      dispatch(profileSuccess({ id: result }));
+    } catch (error) {
+      const handledError = handleErrors(error);
+      dispatch(profileFailure(handledError));
+    }
+
+    done();
   },
 });
