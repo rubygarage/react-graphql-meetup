@@ -36,7 +36,4 @@ const mapDispatchToProps = {
   searchRequest: searchRequestAction,
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(SearchPageContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(SearchPageContainer);

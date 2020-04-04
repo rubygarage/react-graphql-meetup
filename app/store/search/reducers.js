@@ -27,7 +27,7 @@ export const searchReducer = (state = initialState, action) => {
           query: action.payload.query,
           page: action.payload.page,
           results: action.payload.results,
-          totalPages: action.payload.total_pages,
+          totalPages: action.payload.totalPages,
         },
       };
     case t.SEARCH_FAILURE:
