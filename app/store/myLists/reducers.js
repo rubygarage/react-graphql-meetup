@@ -25,14 +25,14 @@ export const createdListsReducer = (state = initialState, action) => {
         data: {
           page: action.payload.page,
           results: action.payload.results,
-          totalPages: action.payload.total_pages,
+          totalPages: action.payload.totalPages,
         },
       };
     case t.CREATED_LISTS_FAILURE:
       return {
         ...state,
         isLoading: false,
-        error: action.payload.message,
+        error: action.payload,
       };
     default:
       return state;
@@ -75,7 +75,7 @@ export const detailsListReducer = (state = detailsListInitialState, action) => {
       return {
         ...state,
         isLoading: false,
-        error: action.payload.message,
+        error: action.payload,
       };
     default:
       return state;
@@ -112,7 +112,7 @@ export const createListReducer = (state = createListInitialState, action) => {
       return {
         ...state,
         isLoading: false,
-        error: action.payload.message,
+        error: action.payload,
       };
     default:
       return state;
@@ -121,9 +121,6 @@ export const createListReducer = (state = createListInitialState, action) => {
 
 export const deleteListInitialState = {
   isLoading: false,
-  data: {
-    message: '',
-  },
   error: null,
 };
 
@@ -139,15 +136,12 @@ export const deleteListReducer = (state = deleteListInitialState, action) => {
       return {
         ...state,
         isLoading: false,
-        data: {
-          message: action.payload.status_message,
-        },
       };
     case t.DELETE_LIST_FAILURE:
       return {
         ...state,
         isLoading: false,
-        error: action.payload.message,
+        error: action.payload,
       };
     default:
       return state;
@@ -156,9 +150,6 @@ export const deleteListReducer = (state = deleteListInitialState, action) => {
 
 export const addMovieListInitialState = {
   isLoading: false,
-  data: {
-    message: '',
-  },
   error: null,
 };
 
@@ -174,15 +165,12 @@ export const addMovieListReducer = (state = addMovieListInitialState, action) =>
       return {
         ...state,
         isLoading: false,
-        data: {
-          message: action.payload.status_message,
-        },
       };
     case t.ADD_MOVIE_LIST_FAILURE:
       return {
         ...state,
         isLoading: false,
-        error: action.payload.message,
+        error: action.payload,
       };
     default:
       return state;
@@ -191,9 +179,6 @@ export const addMovieListReducer = (state = addMovieListInitialState, action) =>
 
 export const removeMovieListInitialState = {
   isLoading: false,
-  data: {
-    message: '',
-  },
   error: null,
 };
 
@@ -209,15 +194,12 @@ export const removeMovieListReducer = (state = removeMovieListInitialState, acti
       return {
         ...state,
         isLoading: false,
-        data: {
-          message: action.payload.status_message,
-        },
       };
     case t.REMOVE_MOVIE_LIST_FAILURE:
       return {
         ...state,
         isLoading: false,
-        error: action.payload.message,
+        error: action.payload,
       };
     default:
       return state;

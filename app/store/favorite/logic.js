@@ -103,22 +103,5 @@ export const addToFavoriteLogic = createLogic({
     }
 
     done();
-
-    // const accountId = getAccountId(getState());
-    // const sessionId = getSessionId(getState());
-    // const { movieId, favorite } = action.payload;
-    // apiClient
-    //   .post(`account/${accountId}/favorite?session_id=${sessionId}`, {
-    //     media_type: 'movie',
-    //     media_id: movieId,
-    //     favorite,
-    //   })
-    //   .then(response => {
-    //     dispatch(addToFavoriteSuccess(response.data));
-    //     dispatch(favoriteRequest({ page: 1 }));
-    //     dispatch(movieRequest({ movieId }));
-    //   })
-    //   .catch(error => dispatch(addToFavoriteFailure(error)))
-    //   .then(() => done());
   },
 });

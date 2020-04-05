@@ -47,8 +47,8 @@ MyListContainer.propTypes = {
   myList: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = state => ({
-  myList: getDetailsList(state),
+const mapStateToProps = (state, { match: { params: { id } } }) => ({
+  myList: getDetailsList(state, id),
 });
 
 const mapDispatchToProps = {
