@@ -54,6 +54,7 @@ export const movieLogic = createLogic({
         variables: {
           id: action.payload.movieId,
         },
+        fetchPolicy: 'network-only'
       });
 
       const { entities } = normalize(movie, schemaMovie);

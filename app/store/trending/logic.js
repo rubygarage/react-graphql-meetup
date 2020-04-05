@@ -31,6 +31,7 @@ export default createLogic({
     try {
       const { data: { trendingMovies } } = await apiClient.query({
         query: TRENDING_MOVIES,
+        fetchPolicy: 'network-only',
       });
 
       const { entities, result } = normalize(trendingMovies, [movies]);

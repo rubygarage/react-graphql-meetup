@@ -27,7 +27,8 @@ export default createLogic({
   async process({ apiClient }, dispatch, done) {
     try {
       const { data: { me } } = await apiClient.query({
-        query: PROFILE
+        query: PROFILE,
+        fetchPolicy: 'network-only'
       });
 
       const { entities, result } = normalize(me, profile);

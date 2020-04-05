@@ -60,6 +60,7 @@ export const watchlistLogic = createLogic({
         },
       } = await apiClient.query({
         query: WATCHLIST,
+        fetchPolicy: 'network-only'
       });
 
       const { entities, result } = normalize(nodes, [movies]);

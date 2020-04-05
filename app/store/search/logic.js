@@ -34,7 +34,8 @@ export default createLogic({
     try {
       const { data: { moviesSearch: { nodes, totalPageCount } } } = await apiClient.query({
         query: SEARCH,
-        variables: { filter: query }
+        variables: { filter: query },
+        fetchPolicy: 'network-only'
       });
 
       const { entities, result } = normalize(nodes, [movies]);

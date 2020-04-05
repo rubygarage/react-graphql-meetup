@@ -60,6 +60,7 @@ export const favoriteLogic = createLogic({
         },
       } = await apiClient.query({
         query: FAVORITES,
+        fetchPolicy: 'network-only'
       });
 
       const { entities, result } = normalize(nodes, [movies]);

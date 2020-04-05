@@ -143,7 +143,7 @@ export const detailsListLogic = createLogic({
       } = await apiClient.query({
         query: LIST_DETAILS,
         variables: { id: listId },
-        fetchPolicy: 'no-cache'
+        fetchPolicy: 'network-only'
       });
 
       const { entities, result } = normalize(list.items, [movies]);
