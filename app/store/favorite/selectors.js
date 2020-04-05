@@ -10,3 +10,5 @@ export const getFavorite = state => {
     }
   );
 };
+
+export const getAddToFavoriteError = state => state.addToFavorite.error;

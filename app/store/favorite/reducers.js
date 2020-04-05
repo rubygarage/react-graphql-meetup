@@ -6,7 +6,6 @@ export const initialState = {
     page: 1,
     results: [],
     totalPages: 0,
-    totalResults: 0,
   },
   error: null,
 };
@@ -26,8 +25,7 @@ export const createFavoriteListReducer = (state = initialState, action) => {
         data: {
           page: action.payload.page,
           results: action.payload.results,
-          totalPages: action.payload.total_pages,
-          totalResults: action.payload.total_results,
+          totalPages: action.payload.totalPages,
         },
       };
     case t.FAVORITE_FAILURE:
@@ -43,9 +41,6 @@ export const createFavoriteListReducer = (state = initialState, action) => {
 
 export const addFavoriteInitialState = {
   isLoading: false,
-  data: {
-    message: '',
-  },
   error: null,
 };
 
@@ -61,15 +56,12 @@ export const addToFavoriteReducer = (state = addFavoriteInitialState, action) =>
       return {
         ...state,
         isLoading: false,
-        data: {
-          message: action.payload.status_message,
-        },
       };
     case t.ADD_TO_FAVORITE_FAILURE:
       return {
         ...state,
         isLoading: false,
-        error: action.payload.message,
+        error: action.payload,
       };
     default:
       return state;

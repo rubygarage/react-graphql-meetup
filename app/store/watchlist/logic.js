@@ -86,11 +86,12 @@ export const addToWatchlistLogic = createLogic({
 
   async process({ apiClient, getState, action }, dispatch, done) {
     const accountId = getAccountId(getState());
+    const { movieId } = action.payload;
 
     try {
       const { data } = await apiClient.mutate({
         mutation: ADD_TO_WATCHLIST,
-        variables: { movieId: action.payload.movieId, userAccountId: accountId },
+        variables: { movieId, userAccountId: accountId },
       });
 
       dispatch(addToWatchlistSuccess());
